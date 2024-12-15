@@ -1,0 +1,74 @@
+<div class="conatiner">
+    <div class="background-image">
+        <div class="image" *ngIf="weatherData.weather[0].main=='Clouds'">
+            <img src="https://c0.wallpaperflare.com/preview/572/961/266/sky-dark-light-clouds.jpg" alt="">
+        </div>
+        <div class="image" *ngIf="weatherData.weather[0].main=='Rain'">
+            <img src="https://st2.depositphotos.com/1011596/7356/i/450/depositphotos_73562923-stock-photo-rain-storm-backgrounds-in-cloudy.jpg" alt="">
+        </div>
+        <div class="image" *ngIf="weatherData.weather[0].main=='Clear'">
+            <img *ngIf="weatherData.main.temp>20" src="https://static.vecteezy.com/system/resources/previews/015/134/640/non_2x/a-view-of-the-sky-with-clear-weather-in-the-morning-the-lush-green-fields-are-outdoors-agricultural-landscape-background-design-template-for-book-cover-magazine-website-photo.jpg" alt="">
+            <img *ngIf="weatherData.main.temp<20" src="https://images7.alphacoders.com/596/596914.jpg" alt="">
+        </div>
+        <div class="image" *ngIf="weatherData.weather[0].main=='Snow'">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.ghg24psHb75JbTnNrJPJSwHaEo&pid=Api&P=0&h=180" alt="">
+        </div>
+        <div class="image" *ngIf="weatherData.weather[0].main=='Haze'">
+            <img src="https://wi-images.condecdn.net/image/lo6YxM12G7V/crop/1440/landscape" alt="">
+        </div>
+        <div class="image" *ngIf="weatherData.main.temp<20">
+            <img src="https://www.collinsdictionary.com/images/full/mist_339182456.jpg?version=4.0.133" alt="">
+        </div>
+        <div class="forms">
+            <form action="" [formGroup]="formgroup" (ngSubmit)="ngOnInit()">
+                <input type="text" name="" class="form-control" placeholder="Enter city name" formControlName="city">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="country-details">
+        <span><h1 class="temp">{{weatherData.main.temp}}°C</h1></span>
+        <span>
+            <h1>{{weatherData.name}}</h1>
+            <p>{{weatherData.weather[0].description}}</p>
+        </span>
+    </div>
+    <div class="dashboard">
+        <div class="item">
+            <h1>Humidity</h1>
+            <p>{{weatherData.main.humidity}}</p>
+        </div>
+        <div class="item">
+            <h1>Mini Temperature</h1>
+            <p>{{weatherData.main.temp_min}}</p>
+        </div>
+        <div class="item" id="item3">
+            <h1>Max Temperature</h1>
+            <p>{{weatherData.main.temp_max}}</p>
+        </div>
+        <div class="item">
+            <h1>Pressure</h1>
+            <p>{{weatherData.main.pressure}}</p>
+        </div>
+        <div class="item">
+            <h1>Wind</h1>
+            <p>speed:{{weatherData.wind.speed}}</p>
+            <p>Degree:{{weatherData.wind.deg}}</p>
+        </div>
+        <div class="item">
+            <h1>Coordinates</h1>
+            <p>Longitude:{{weatherData.coord.lon}}</p>
+            <p>Latitude:{{weatherData.coord.lat}}</p>
+        </div>
+        <div class="item">
+            <h1>Sea Level</h1>
+            <p>{{weatherData.main.sea_level}}</p>
+        </div>
+        <div class="item">
+            <h1>Visibility</h1>
+            <p>{{weatherData.visibility}}</p>
+        </div>
+    </div>
+</div>
+
+
